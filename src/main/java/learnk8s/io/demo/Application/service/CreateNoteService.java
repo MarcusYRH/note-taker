@@ -51,8 +51,16 @@ public class CreateNoteService implements NoteService {
 
   public void selectSpecificNote(String description, Model model) {
     List<Note> notes = new ArrayList<>();
-    Note noteFound = notesRepository.findAllByDescription(description);
-    notes.add(noteFound);
+    // Format given description before passing to repo layer to query
+    String appendingHtmlStart = "<p>";
+    String appendingHtmlEnd = "</p>\n";
+    String descriptionForQuery = appendingHtmlStart + description + appendingHtmlEnd;
+    log.info(descriptionForQuery);
+    List<Note> noteFound = notesRepository.findAllByDescription(descriptionForQuery);
+    if(noteFound == null) {
+      log.error("NO NOTE FOUND!");
+    }
+    notes.add(noteFound.get(0));
     model.addAttribute("notes", notes);
   }
 

@@ -6,8 +6,21 @@
 <body class="ph3 pt0 pb4 mw7 center sans-serif">
 <h1 class="f2 mb0"><span class="gold">k</span>note</h1>
 <p class="f5 mt1 mb4 lh-copy">A simple note-taking app.</p>
-<#--<form action="/note" method="POST" enctype="multipart/form-data">-->
-<#--</form>-->
+
+<form action="/getSpecificNote" method="GET" enctype="multipart/form-data">
+    <li class="mv3"><label class="f6 b db mb2" for="description">Enter the contents of the note that you would like to search here:</label>
+        <textarea class="f4 db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" rows="1"
+                  name="description"><#if description??>${description}</#if></textarea>
+        <input class="f6 link dim br1 ba bw1 ph3 pv2 mb2 dib black bg-white pointer" type="submit" value="Search"
+               name="Search">
+    </li>
+</form>
+
+<form action="/" method="GET" enctype="multipart/form-data">
+    <input class="f6 link dim br1 ba bw1 ph3 pv2 mb2 dib black bg-white pointer" type="submit" value="Reload Database Contents"
+           name="Reload Database Contents">
+</form>
+
 <form action="/note" method="POST" enctype="multipart/form-data">
     <ol class="list pl0">
         <li class="mv3">

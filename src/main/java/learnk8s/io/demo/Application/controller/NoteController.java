@@ -21,7 +21,7 @@ public class NoteController {
     return "index";
   }
 
-  @RequestMapping("/getNote")
+  @GetMapping("/getSpecificNote")
   public String getSpecificNote(@RequestParam String description, Model model) {
     createNoteService.selectSpecificNote(description, model);
     log.info("Received request to pull specific note.");

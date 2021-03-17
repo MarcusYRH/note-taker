@@ -8,12 +8,14 @@
 <p class="f5 mt1 mb4 lh-copy">A simple note-taking app.</p>
 
 <form action="/getSpecificNote" method="GET" enctype="multipart/form-data">
-    <li class="mv3"><label class="f6 b db mb2" for="description">Enter the contents of the note that you would like to search here:</label>
+    <ol class="list pl0">
+    <li class="mv4"><label class="f6 b db mb2" for="description">Enter the contents of the note that you would like to search here:</label>
         <textarea class="f4 db border-box hover-black w-100 measure ba b--black-20 pa2 br2 mb2" rows="1"
                   name="description"><#if description??>${description}</#if></textarea>
         <input class="f6 link dim br1 ba bw1 ph3 pv2 mb2 dib black bg-white pointer" type="submit" value="Search"
                name="Search">
     </li>
+    </ol>
 </form>
 
 <form action="/" method="GET" enctype="multipart/form-data">
@@ -50,5 +52,18 @@
         </#list>
     </#if>
 </ul>
+
+<#--<ul class="list pl1"><p class="f6 b db mb2">FoundNotes</p>-->
+<#--    <#if foundNotes??>-->
+<#--        <#list foundNotes as foundNote>-->
+<#--            <li class="mv3 bb bw2 b--light-yellow bg-washed-yellow ph4 pv2"><p class="measure"></p>-->
+<#--                <p>${foundNote}</p>-->
+<#--                <p></p>-->
+<#--            </li>-->
+<#--        <#else>-->
+<#--            <p class="lh-copy f6">You don't have any notes yet.</p>-->
+<#--        </#list>-->
+<#--    </#if>-->
+<#--</ul>-->
 </body>
 </html>
